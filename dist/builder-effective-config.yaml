@@ -1,0 +1,17 @@
+directories:
+  output: dist
+  buildResources: build
+appId: SysMonitor
+win:
+  target:
+    - nsis
+  requestedExecutionLevel: requireAdministrator
+  icon: src/nameimage.ico
+nsis:
+  uninstallDisplayName: SysMonitor
+  license: src/license.txt
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+electronVersion: 11.1.0

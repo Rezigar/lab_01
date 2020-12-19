@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>lab_01</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+      <script>
+          const electron = require("electron");
+          const ipcRenderer = electron.ipcRenderer;
+
+          ipcRenderer.on("cpu-cores", (event, data) => {
+              document.getElementById("cpu-cores").innerHTML = data;
+          });
+          ipcRenderer.on("cpu", (event, data) => {
+              document.getElementById("cpu").innerHTML = data;
+          });
+          ipcRenderer.on("mem", (event, data) => {
+              document.getElementById("mem").innerHTML = data;
+          });
+          ipcRenderer.on("total-mem", (event, data) => {
+              document.getElementById("total-mem").innerHTML = data;
+          });
+          ipcRenderer.on("uptime", (event, data) => {
+              document.getElementById("uptime").innerHTML = data;
+          });
+      </script>
+
+      <div class="box">
+          <span class="lable">CPU core`s</span>
+          <span id="cpu-cores">-</span>
+      </div>
+      <div class="box">
+          <span class="lable">CPU load %</span>
+          <span id="cpu">-</span>
+      </div>
+      <div class="box">
+          <span class="lable">Free RAM (%)</span>
+          <span id="mem">-</span>
+      </div>
+      <div class="box">
+          <span class="lable">Total RAM (Gb)</span>
+          <span id="total-mem">-</span>
+      </div>
+      <div class="box">
+          <span class="lable">Sys uptime (min)</span>
+          <span id="uptime">-</span>
+      </div>
+  </body>
+
+</html>
